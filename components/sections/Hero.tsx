@@ -31,7 +31,7 @@ export function Hero() {
             PERSONEL DOSYASI · AÇIK
           </span>
 
-          <h1 className="mt-5 font-display text-[2.6rem] font-semibold leading-[1.05] tracking-tight text-ink sm:text-6xl">
+          <h1 className="mt-5 font-display text-[2.6rem] font-medium leading-[1.05] text-ink sm:text-6xl">
             İş İngilizcesini{" "}
             <span className="relative whitespace-nowrap">
               <span className="relative z-10">sektörünün diliyle</span>

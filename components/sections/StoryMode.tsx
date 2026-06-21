@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Lock } from "lucide-react";
 import { WaxSeal } from "@/components/ui/WaxSeal";
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 
@@ -38,48 +39,45 @@ export function StoryMode() {
         {/* başlık bloğu */}
         <div className="mb-12 flex flex-wrap items-end justify-between gap-6 border-b border-white/15 pb-8">
           <div className="max-w-2xl">
-            <p className="font-data text-[11px] tracking-[0.28em] text-accent">
-              İMZA · TERFİ DOSYASI
-            </p>
-            <h2 className="mt-3 font-display text-4xl font-semibold leading-tight sm:text-5xl">
-              Stajyerlikten CEO&apos;ya, mühür mühür yüksel.
+            <p className="font-data text-[11px] text-accent">KARİYER DOSYASI</p>
+            <h2 className="mt-3 font-display text-4xl font-medium leading-tight sm:text-5xl">
+              Stajyerlikten CEO&apos;ya, kararlarınla yüksel.
             </h2>
-            <p className="mt-4 text-white/60">
+            <p className="mt-4 text-white/75">
               Pandinyo&apos;da kelime ezberlemezsin — bir kariyer yürürsün. Her
-              bölümde gerçek bir iş senaryosunda İngilizce karar verir, başarınca
-              bir sonraki kademenin mührünü hak edersin.
+              bölümde gerçek bir iş senaryosunda İngilizce karar verirsin;
+              başarınca bir sonraki kademe açılır.
             </p>
           </div>
-          {/* SADECE MOBİL damgası */}
-          <span className="inline-flex -rotate-3 items-center gap-2 border-2 border-seal/90 px-4 py-1.5 font-data text-xs font-bold tracking-[0.18em] text-[#E6A6AD]">
-            <span className="h-2 w-2 rounded-full bg-seal" />
-            SADECE MOBİL UYGULAMADA
+          {/* SADECE MOBİL — düz tipografik etiket */}
+          <span className="border border-white/30 px-4 py-1.5 font-data text-[11px] text-white/70">
+            Sadece mobil uygulamada
           </span>
         </div>
 
         <div className="grid gap-10 lg:grid-cols-[1fr_0.85fr]">
-          {/* SOL — mühürlü terfi yolu (imza unsuru) */}
+          {/* SOL — terfi yolu (imza unsuru) */}
           <ol className="relative space-y-3">
             {/* altın iplik */}
-            <span className="pointer-events-none absolute bottom-6 left-[26px] top-6 w-px bg-gradient-to-b from-accent/0 via-accent/50 to-accent/0" />
-            {ranks.map((r, i) => (
+            <span className="pointer-events-none absolute bottom-6 left-[19px] top-6 w-px bg-gradient-to-b from-accent/0 via-accent/45 to-accent/0" />
+            {ranks.map((r) => (
               <li
                 key={r.code}
                 className={`paper-texture relative flex items-center gap-4 rounded-md border-l-4 px-4 py-3.5 text-ink shadow-card ${
-                  r.top ? "border-accent" : "border-ink/20"
+                  r.top ? "border-accent" : "border-ink/15"
                 }`}
               >
-                <WaxSeal
-                  label={String(ranks.length - i).padStart(2, "0")}
-                  size={54}
-                  tone={r.top ? "gold" : "seal"}
-                  className="shrink-0 drop-shadow"
-                />
+                {/* iplik üzerindeki düğüm — mühür değil, sade düğüm */}
+                <span className="relative z-10 flex h-3 w-3 shrink-0 items-center justify-center">
+                  <span
+                    className={`h-3 w-3 rounded-full ${
+                      r.top ? "bg-accent ring-4 ring-accent/25" : "bg-ink/25"
+                    }`}
+                  />
+                </span>
                 <div className="min-w-0 flex-1">
-                  <p className="font-data text-[10px] tracking-[0.18em] text-ink/45">
-                    {r.code}
-                  </p>
-                  <p className="font-display text-lg font-semibold leading-tight text-ink">
+                  <p className="font-data text-[10px] text-ink/45">{r.code}</p>
+                  <p className="font-display text-lg font-medium leading-tight text-ink">
                     {r.role}
                     <span className="ml-2 align-middle font-sans text-xs font-normal text-ink/55">
                       {r.tr}
@@ -95,24 +93,30 @@ export function StoryMode() {
 
           {/* SAĞ — hikâye dosyaları + mekanik */}
           <div>
-            <p className="font-data text-[11px] tracking-[0.22em] text-white/45">
-              HİKÂYE KARTLARI · HER BİRİ 10 BÖLÜM
+            <p className="font-data text-[11px] text-white/45">
+              Hikâye kartları · her biri 10 bölüm
             </p>
             <div className="mt-4 space-y-3">
               {cards.map((c) => (
                 <div
                   key={c.code}
-                  className="flex items-center justify-between rounded-md border border-white/12 bg-white/[0.04] px-4 py-3.5"
+                  className="flex items-center gap-4 rounded-md border border-white/12 bg-white/[0.04] px-4 py-3.5"
                 >
-                  <div>
-                    <p className="font-data text-[10px] tracking-[0.18em] text-white/40">
-                      {c.code}
-                    </p>
-                    <p className="font-display text-lg font-semibold">{c.title}</p>
-                    <p className="font-data text-xs text-white/50">{c.range}</p>
+                  {/* Mühür YALNIZCA açık dosyada; kilitlide sade kilit */}
+                  {c.open ? (
+                    <WaxSeal size={40} tone="gold" className="shrink-0" />
+                  ) : (
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/15 text-white/35">
+                      <Lock size={16} />
+                    </span>
+                  )}
+                  <div className="min-w-0 flex-1">
+                    <p className="font-data text-[10px] text-white/40">{c.code}</p>
+                    <p className="font-display text-lg font-medium">{c.title}</p>
+                    <p className="font-data text-[10px] text-white/50">{c.range}</p>
                   </div>
                   <span
-                    className={`shrink-0 font-data text-[10px] font-bold tracking-[0.14em] ${
+                    className={`shrink-0 font-data text-[10px] ${
                       c.open ? "text-accent" : "text-white/45"
                     }`}
                   >
@@ -123,10 +127,14 @@ export function StoryMode() {
             </div>
 
             <div className="mt-5 flex items-start gap-3 rounded-md border border-accent/25 bg-accent/[0.06] p-4">
-              <Stars />
-              <p className="text-sm text-white/70">
+              <span className="mt-0.5">
+                <Stars />
+              </span>
+              <p className="text-sm text-white/75">
                 Bir dosyayı{" "}
-                <strong className="text-white">Yükselen Yıldız (★★★)</strong>{" "}
+                <strong className="font-medium text-white">
+                  Yükselen Yıldız (★★★)
+                </strong>{" "}
                 olarak kapatınca bir üst kademenin kilidi açılır. Global Manager
                 ve Startup Founder dosyaları seni zirvede bekliyor.
               </p>
@@ -145,11 +153,11 @@ export function StoryMode() {
               className="hidden w-28 drop-shadow-xl sm:block"
             />
             <div className="text-center sm:text-left">
-              <h3 className="font-display text-2xl font-semibold">
+              <h3 className="font-display text-2xl font-medium">
                 Dosyanı telefonundan aç
               </h3>
-              <p className="mt-1 max-w-md text-sm text-white/60">
-                Terfi Dosyası, seri sistemi ve tüm sektörler mobil uygulamada.
+              <p className="mt-1 max-w-md text-sm text-white/75">
+                Kariyer dosyası, seri sistemi ve tüm sektörler mobil uygulamada.
                 Web demosu sadece bir tadımlık.
               </p>
             </div>
