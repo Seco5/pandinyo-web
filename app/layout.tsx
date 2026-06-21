@@ -1,10 +1,26 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Fraunces, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+// Display — "resmi memorandum" hissi veren karakterli serif
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+  axes: ["opsz", "SOFT", "WONK"],
+});
+
+// Veri/istatistik — XP, seri günü, dosya numarası hissi
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-mono-data",
   display: "swap",
 });
 
@@ -45,7 +61,10 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="tr" className={inter.variable}>
+    <html
+      lang="tr"
+      className={`${inter.variable} ${fraunces.variable} ${plexMono.variable}`}
+    >
       <body>{children}</body>
     </html>
   );

@@ -1,124 +1,156 @@
 import Image from "next/image";
-import { Lock, Smartphone, Sparkles, TrendingUp } from "lucide-react";
-import { Button } from "@/components/ui/Button";
+import { WaxSeal } from "@/components/ui/WaxSeal";
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 
-// Mobil src/data/story.ts — kariyer zinciri (careerCards) ve merdiven seviyeleri
-const ladder = [
-  { n: 1, role: "Intern", tr: "Stajyer", color: "#1D4ED8" },
-  { n: 2, role: "Junior Analyst", tr: "Uzman Yardımcısı", color: "#15803D" },
-  { n: 3, role: "Manager", tr: "Müdür", color: "#C2410C" },
-  { n: 4, role: "Director", tr: "Direktör", color: "#7C3AED" },
-  { n: 5, role: "CEO", tr: "Genel Müdür", color: "#FF9F1C" },
+// Mobil src/data/story.ts — kariyer zinciri ve kademeler
+const ranks = [
+  { code: "RANK-01", role: "Intern", tr: "Stajyer", note: "İlk gün, ilk izlenim" },
+  { code: "RANK-02", role: "Junior Analyst", tr: "Uzman Yardımcısı", note: "İlk sorumluluklar" },
+  { code: "RANK-03", role: "Manager", tr: "Müdür", note: "Ekibini yönet" },
+  { code: "RANK-04", role: "Director", tr: "Direktör", note: "Kurula hesap ver" },
+  { code: "RANK-05", role: "CEO", tr: "Genel Müdür", note: "Zirve", top: true },
 ];
+
+const cards = [
+  { code: "DOSYA-A", title: "İlk Adım", range: "Intern → Junior", status: "AÇIK", open: true },
+  { code: "DOSYA-B", title: "Yöneticilik Yolu", range: "Junior → Müdür", status: "★★★ İLE AÇILIR", open: false },
+  { code: "DOSYA-C", title: "Zirveye Son Adım", range: "Müdür → CEO", status: "★★★ İLE AÇILIR", open: false },
+];
+
+function Stars() {
+  return (
+    <span className="inline-flex gap-0.5" aria-label="üç yıldız">
+      {[0, 1, 2].map((i) => (
+        <svg key={i} width="11" height="11" viewBox="0 0 24 24" fill="#FFC83D">
+          <path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z" />
+        </svg>
+      ))}
+    </span>
+  );
+}
 
 export function StoryMode() {
   return (
     <section id="story" className="relative overflow-hidden bg-ink py-20 text-white">
-      {/* arka plan ışıması */}
-      <div className="pointer-events-none absolute -left-32 top-1/3 h-96 w-96 rounded-full bg-accent/20 blur-[120px]" />
+      <div className="pointer-events-none absolute -left-40 top-1/4 h-96 w-96 rounded-full bg-accent/10 blur-[130px]" />
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-        {/* Üst başlık + mobil rozeti */}
-        <div className="mb-12 text-center">
-          <span className="mb-4 inline-flex items-center gap-2 rounded-full bg-accent px-4 py-1.5 text-sm font-bold text-ink">
-            <Smartphone size={16} /> Sadece mobil uygulamada
+        {/* başlık bloğu */}
+        <div className="mb-12 flex flex-wrap items-end justify-between gap-6 border-b border-white/15 pb-8">
+          <div className="max-w-2xl">
+            <p className="font-data text-[11px] tracking-[0.28em] text-accent">
+              İMZA · TERFİ DOSYASI
+            </p>
+            <h2 className="mt-3 font-display text-4xl font-semibold leading-tight sm:text-5xl">
+              Stajyerlikten CEO&apos;ya, mühür mühür yüksel.
+            </h2>
+            <p className="mt-4 text-white/60">
+              Pandinyo&apos;da kelime ezberlemezsin — bir kariyer yürürsün. Her
+              bölümde gerçek bir iş senaryosunda İngilizce karar verir, başarınca
+              bir sonraki kademenin mührünü hak edersin.
+            </p>
+          </div>
+          {/* SADECE MOBİL damgası */}
+          <span className="inline-flex -rotate-3 items-center gap-2 border-2 border-seal/90 px-4 py-1.5 font-data text-xs font-bold tracking-[0.18em] text-[#E6A6AD]">
+            <span className="h-2 w-2 rounded-full bg-seal" />
+            SADECE MOBİL UYGULAMADA
           </span>
-          <h2 className="mx-auto max-w-2xl text-3xl font-extrabold tracking-tight sm:text-4xl">
-            Story Mode — sektörde ilk ve tek{" "}
-            <span className="text-accent">interaktif kariyer yolu</span>
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-white/60">
-            Pandinyo&apos;da sadece kelime ezberlemezsin — bir kariyer yaşarsın.
-            Stajyer olarak işe başlar, her bölümde gerçek iş senaryolarında
-            İngilizce kararlar verir ve seçimlerinle ya zirveye çıkar ya da
-            işten çıkarılırsın. Bu deneyim başka hiçbir dil uygulamasında yok.
-          </p>
         </div>
 
-        <div className="grid items-center gap-10 lg:grid-cols-2">
-          {/* Kariyer merdiveni görseli (mobil src/assets/story/career_ladder.png) */}
-          <div className="relative flex justify-center">
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-accent/10 to-transparent blur-2xl" />
-            <Image
-              src="/story/career_ladder.png"
-              alt="Pandinyo kariyer basamakları: Intern, Junior Analyst, Manager, Director, CEO"
-              width={980}
-              height={796}
-              className="relative w-full max-w-md drop-shadow-2xl"
-              priority={false}
-            />
-          </div>
+        <div className="grid gap-10 lg:grid-cols-[1fr_0.85fr]">
+          {/* SOL — mühürlü terfi yolu (imza unsuru) */}
+          <ol className="relative space-y-3">
+            {/* altın iplik */}
+            <span className="pointer-events-none absolute bottom-6 left-[26px] top-6 w-px bg-gradient-to-b from-accent/0 via-accent/50 to-accent/0" />
+            {ranks.map((r, i) => (
+              <li
+                key={r.code}
+                className={`paper-texture relative flex items-center gap-4 rounded-md border-l-4 px-4 py-3.5 text-ink shadow-card ${
+                  r.top ? "border-accent" : "border-ink/20"
+                }`}
+              >
+                <WaxSeal
+                  label={String(ranks.length - i).padStart(2, "0")}
+                  size={54}
+                  tone={r.top ? "gold" : "seal"}
+                  className="shrink-0 drop-shadow"
+                />
+                <div className="min-w-0 flex-1">
+                  <p className="font-data text-[10px] tracking-[0.18em] text-ink/45">
+                    {r.code}
+                  </p>
+                  <p className="font-display text-lg font-semibold leading-tight text-ink">
+                    {r.role}
+                    <span className="ml-2 align-middle font-sans text-xs font-normal text-ink/55">
+                      {r.tr}
+                    </span>
+                  </p>
+                </div>
+                <span className="hidden font-sans text-xs text-ink/50 sm:block">
+                  {r.note}
+                </span>
+              </li>
+            ))}
+          </ol>
 
-          {/* Basamak listesi + anlatım */}
+          {/* SAĞ — hikâye dosyaları + mekanik */}
           <div>
-            <ol className="space-y-2.5">
-              {ladder.map((l) => (
-                <li
-                  key={l.n}
-                  className="flex items-center gap-4 rounded-2xl bg-white/5 p-3.5 ring-1 ring-white/10 transition hover:bg-white/[0.08]"
+            <p className="font-data text-[11px] tracking-[0.22em] text-white/45">
+              HİKÂYE KARTLARI · HER BİRİ 10 BÖLÜM
+            </p>
+            <div className="mt-4 space-y-3">
+              {cards.map((c) => (
+                <div
+                  key={c.code}
+                  className="flex items-center justify-between rounded-md border border-white/12 bg-white/[0.04] px-4 py-3.5"
                 >
-                  <span
-                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-extrabold text-white"
-                    style={{ background: l.color }}
-                  >
-                    {l.n}
-                  </span>
-                  <div className="flex-1">
-                    <p className="font-bold leading-tight">{l.role}</p>
-                    <p className="text-xs text-white/50">{l.tr}</p>
+                  <div>
+                    <p className="font-data text-[10px] tracking-[0.18em] text-white/40">
+                      {c.code}
+                    </p>
+                    <p className="font-display text-lg font-semibold">{c.title}</p>
+                    <p className="font-data text-xs text-white/50">{c.range}</p>
                   </div>
-                  {l.n === 5 && <span className="text-xl">👑</span>}
-                </li>
+                  <span
+                    className={`shrink-0 font-data text-[10px] font-bold tracking-[0.14em] ${
+                      c.open ? "text-accent" : "text-white/45"
+                    }`}
+                  >
+                    {c.status}
+                  </span>
+                </div>
               ))}
-            </ol>
+            </div>
 
-            <ul className="mt-6 space-y-3 text-sm text-white/70">
-              <li className="flex items-start gap-2.5">
-                <TrendingUp size={18} className="mt-0.5 shrink-0 text-accent" />
-                <span>
-                  <strong className="text-white">10 bölümlük hikâye kartları:</strong>{" "}
-                  İlk Adım, Yöneticilik Yolu, Zirveye Son Adım — her biri seni bir
-                  üst kademeye taşır.
-                </span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <Sparkles size={18} className="mt-0.5 shrink-0 text-accent" />
-                <span>
-                  <strong className="text-white">Kararların sonucu var:</strong>{" "}
-                  Toplantıda susmak, zammı istememek ya da kötü haberi saklamak —
-                  her seçim kariyerini değiştirir.
-                </span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <Lock size={18} className="mt-0.5 shrink-0 text-accent" />
-                <span>
-                  <strong className="text-white">★★★ ile kilit aç:</strong>{" "}
-                  Bir kartı &quot;Yükselen Yıldız&quot; olarak bitirince bir sonraki
-                  kademe açılır. Global Manager ve Startup Founder seni bekliyor.
-                </span>
-              </li>
-            </ul>
+            <div className="mt-5 flex items-start gap-3 rounded-md border border-accent/25 bg-accent/[0.06] p-4">
+              <Stars />
+              <p className="text-sm text-white/70">
+                Bir dosyayı{" "}
+                <strong className="text-white">Yükselen Yıldız (★★★)</strong>{" "}
+                olarak kapatınca bir üst kademenin kilidi açılır. Global Manager
+                ve Startup Founder dosyaları seni zirvede bekliyor.
+              </p>
+            </div>
           </div>
         </div>
 
-        {/* İndirme CTA — hooded panda hero ile */}
-        <div className="mt-14 flex flex-col items-center gap-6 rounded-3xl border border-white/10 bg-white/[0.04] p-7 sm:flex-row sm:justify-between sm:p-9">
+        {/* İndirme CTA */}
+        <div className="mt-14 flex flex-col items-center gap-6 rounded-lg border border-white/12 bg-white/[0.04] p-7 sm:flex-row sm:justify-between sm:p-9">
           <div className="flex items-center gap-5">
             <Image
               src="/story/panda_hero.png"
-              alt="Pandinyo maskotu — dizüstü bilgisayar başında"
+              alt="Pandinyo maskotu"
               width={160}
               height={130}
-              className="hidden w-32 drop-shadow-xl sm:block"
+              className="hidden w-28 drop-shadow-xl sm:block"
             />
             <div className="text-center sm:text-left">
-              <h3 className="text-xl font-extrabold sm:text-2xl">
-                Kariyerine telefonundan başla
+              <h3 className="font-display text-2xl font-semibold">
+                Dosyanı telefonundan aç
               </h3>
               <p className="mt-1 max-w-md text-sm text-white/60">
-                Story Mode, seri sistemi ve tüm sektörler mobil uygulamada. Web
-                demosu sadece bir tadımlık — gerçek yolculuk burada.
+                Terfi Dosyası, seri sistemi ve tüm sektörler mobil uygulamada.
+                Web demosu sadece bir tadımlık.
               </p>
             </div>
           </div>
