@@ -23,7 +23,7 @@ export function Header() {
         <nav className="hidden items-center gap-7 text-sm font-medium text-secondary md:flex">
           <a href="/#modules" className="hover:text-ink">Modüller</a>
           <a href="/#streak" className="hover:text-ink">Seri Sistemi</a>
-          <a href="/#career" className="hover:text-ink">Kariyer Yolu</a>
+          <a href="/#story" className="hover:text-ink">Story Mode</a>
           <Link href="/pricing" className="hover:text-ink">Fiyatlandırma</Link>
         </nav>
 

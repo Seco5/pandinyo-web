@@ -2,7 +2,7 @@ import { Header } from "@/components/sections/Header";
 import { Hero } from "@/components/sections/Hero";
 import { ModulesShowcase } from "@/components/sections/ModulesShowcase";
 import { StreakExplainer } from "@/components/sections/StreakExplainer";
-import { CareerJourney } from "@/components/sections/CareerJourney";
+import { StoryMode } from "@/components/sections/StoryMode";
 import { PricingTeaser } from "@/components/sections/PricingTeaser";
 import { Footer } from "@/components/sections/Footer";
 import { MiniDemo } from "@/components/demo/MiniDemo";
@@ -39,7 +39,7 @@ export default function Home() {
 
       <ModulesShowcase />
       <StreakExplainer />
-      <CareerJourney />
+      <StoryMode />
       <PricingTeaser />
       <Footer />
     </main>
