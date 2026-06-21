@@ -1,26 +1,68 @@
 @import "tailwindcss";
 
+/* ── Pandinyo marka kimliği (mobil src/theme.ts ile birebir) ── */
+@theme {
+  --color-background: #fafafa;
+  --color-surface: #ffffff;
+  --color-primary: #111111;
+  --color-secondary: #3a3a3a;
+  --color-accent: #ffc83d;
+  --color-accent-deep: #ff9f1c;
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+  --color-border: #eaeaea;
+  --color-muted: #9a9a9a;
+  --color-ink: #111111;
+
+  --radius-pill: 999px;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fafafa;
+  --foreground: #111111;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: var(--color-border);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Yumuşak gölge — mobil shadow ile uyumlu */
+.shadow-soft {
+  box-shadow: 0 4px 24px rgba(17, 17, 17, 0.06);
+}
+.shadow-card {
+  box-shadow: 0 8px 30px rgba(17, 17, 17, 0.08);
+}
+
+/* Panda hafif sallanma */
+@keyframes panda-bob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(-2deg); }
+}
+.animate-bob { animation: panda-bob 3s ease-in-out infinite; }
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+.animate-float { animation: float-slow 6s ease-in-out infinite; }
+
+/* Flashcard 3D çevirme */
+.flip-3d { transform-style: preserve-3d; transition: transform 0.5s cubic-bezier(0.4, 0.2, 0.2, 1); }
+.flip-3d.is-flipped { transform: rotateY(180deg); }
+.flip-face { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.flip-back { transform: rotateY(180deg); }
+
+.bg-grid {
+  background-image: radial-gradient(circle at 1px 1px, rgba(17,17,17,0.05) 1px, transparent 0);
+  background-size: 24px 24px;
 }
