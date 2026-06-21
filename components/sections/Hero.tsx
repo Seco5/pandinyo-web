@@ -1,7 +1,7 @@
+import Image from "next/image";
 import { ArrowRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Pill } from "@/components/ui/Card";
-import { Panda } from "@/components/mascot/Panda";
 
 export function Hero() {
   return (
@@ -43,23 +43,43 @@ export function Hero() {
           </ul>
         </div>
 
-        <div className="relative flex items-center justify-center">
-          <div className="absolute h-64 w-64 rounded-full bg-accent/20 blur-3xl" />
-          <div className="relative flex flex-col items-center gap-5">
-            <Panda size={200} accessory="🔥" />
-            <div className="flex gap-3">
-              <div className="rounded-2xl bg-ink px-4 py-3 text-center">
-                <p className="text-2xl font-extrabold text-accent">7</p>
-                <p className="text-[11px] font-medium text-white/70">günlük seri</p>
-              </div>
-              <div className="rounded-2xl bg-ink px-4 py-3 text-center">
-                <p className="text-2xl font-extrabold text-accent">1.240</p>
-                <p className="text-[11px] font-medium text-white/70">XP</p>
-              </div>
-              <div className="rounded-2xl bg-ink px-4 py-3 text-center">
-                <p className="text-2xl font-extrabold text-accent">💎 18</p>
-                <p className="text-[11px] font-medium text-white/70">elmas</p>
-              </div>
+        <div className="relative">
+          {/* sıcak ışıma — görselin gece/altın tonuyla uyumlu */}
+          <div className="pointer-events-none absolute -inset-6 rounded-[2.5rem] bg-accent/20 blur-3xl" />
+
+          <div className="relative overflow-hidden rounded-[2rem] border border-ink/10 shadow-card animate-float">
+            <Image
+              src="/story/global-manager-hero.webp"
+              alt="Takım elbiseli Pandinyo, Londra manzaralı ofisinde dizüstü bilgisayar başında"
+              width={1440}
+              height={500}
+              priority
+              className="h-auto w-full"
+            />
+
+            {/* alt karartma — istatistik çiplerinin okunması için */}
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-ink/85 via-ink/30 to-transparent" />
+
+            {/* sol üst: rol etiketi */}
+            <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-ink/70 px-3 py-1 text-xs font-bold text-accent backdrop-blur">
+              👔 Global Manager
+            </span>
+
+            {/* alt: gamification istatistikleri görselin üzerinde */}
+            <div className="absolute inset-x-4 bottom-4 flex items-center gap-2.5">
+              {[
+                { v: "7", l: "günlük seri" },
+                { v: "1.240", l: "XP" },
+                { v: "💎 18", l: "elmas" },
+              ].map((s) => (
+                <div
+                  key={s.l}
+                  className="flex-1 rounded-2xl bg-ink/70 px-3 py-2 text-center backdrop-blur"
+                >
+                  <p className="text-lg font-extrabold leading-tight text-accent">{s.v}</p>
+                  <p className="text-[10px] font-medium text-white/70">{s.l}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
