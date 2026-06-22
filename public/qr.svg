@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="58" height="58" viewBox="0 0 58 58" shape-rendering="crispEdges">
+<rect width="58" height="58" fill="#fff"/>
+<g fill="#111">
+<path d="M4 4h18v18H4zm4 4v10h10V8z"/><rect x="10" y="10" width="6" height="6"/>
+<path d="M36 4h18v18H36zm4 4v10h10V8z"/><rect x="42" y="10" width="6" height="6"/>
+<path d="M4 36h18v18H4zm4 4v10h10V8z" transform="translate(0 -4)"/><rect x="10" y="42" width="6" height="6"/>
+<rect x="26" y="4" width="2" height="2"/><rect x="30" y="4" width="2" height="2"/><rect x="26" y="8" width="2" height="2"/><rect x="32" y="8" width="2" height="2"/><rect x="28" y="12" width="2" height="2"/><rect x="26" y="16" width="2" height="2"/><rect x="32" y="16" width="2" height="2"/><rect x="30" y="18" width="2" height="2"/>
+<rect x="26" y="26" width="2" height="2"/><rect x="30" y="26" width="2" height="2"/><rect x="34" y="26" width="2" height="2"/><rect x="38" y="26" width="2" height="2"/><rect x="44" y="26" width="2" height="2"/><rect x="48" y="26" width="2" height="2"/><rect x="52" y="26" width="2" height="2"/>
+<rect x="26" y="30" width="2" height="2"/><rect x="32" y="30" width="2" height="2"/><rect x="40" y="30" width="2" height="2"/><rect x="46" y="30" width="2" height="2"/><rect x="50" y="30" width="2" height="2"/>
+<rect x="28" y="34" width="2" height="2"/><rect x="34" y="34" width="2" height="2"/><rect x="38" y="34" width="2" height="2"/><rect x="44" y="34" width="2" height="2"/><rect x="52" y="34" width="2" height="2"/>
+<rect x="26" y="38" width="2" height="2"/><rect x="32" y="38" width="2" height="2"/><rect x="36" y="38" width="2" height="2"/><rect x="42" y="38" width="2" height="2"/><rect x="48" y="38" width="2" height="2"/>
+<rect x="28" y="42" width="2" height="2"/><rect x="34" y="42" width="2" height="2"/><rect x="40" y="42" width="2" height="2"/><rect x="46" y="42" width="2" height="2"/><rect x="50" y="42" width="2" height="2"/><rect x="54" y="42" width="2" height="2"/>
+<rect x="26" y="46" width="2" height="2"/><rect x="30" y="46" width="2" height="2"/><rect x="38" y="46" width="2" height="2"/><rect x="44" y="46" width="2" height="2"/><rect x="52" y="46" width="2" height="2"/>
+<rect x="28" y="50" width="2" height="2"/><rect x="32" y="50" width="2" height="2"/><rect x="36" y="50" width="2" height="2"/><rect x="42" y="50" width="2" height="2"/><rect x="48" y="50" width="2" height="2"/><rect x="54" y="50" width="2" height="2"/>
+</g>
+</svg>
