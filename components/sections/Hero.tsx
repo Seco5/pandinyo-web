@@ -149,9 +149,9 @@ export function Hero() {
               width={1200}
               height={960}
               priority
-              className="pointer-events-none absolute inset-y-0 right-0 z-0 h-full w-[68%] object-cover object-left opacity-95"
+              className="pointer-events-none absolute inset-y-0 right-0 z-0 h-full w-[56%] object-cover object-[70%_center]"
             />
-            <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-[#1a1a1a] via-[#1a1a1a]/85 to-transparent" />
+            <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-[#1a1a1a] from-40% via-[#1a1a1a]/80 via-58% to-transparent" />
 
             {/* üst: Global Manager + progress */}
             <div className="relative z-10 flex items-center gap-2.5">
@@ -170,14 +170,14 @@ export function Hero() {
 
             <div className="relative z-10 mt-4 flex gap-3">
               {/* kariyer listesi */}
-              <div className="w-[52%] space-y-2">
+              <div className="w-[48%] space-y-2">
                 {careerSteps.map((c, i) => (
                   <div key={c.role}>
                     <div
-                      className={`flex items-center gap-2.5 rounded-xl px-2.5 py-2 ${
+                      className={`flex items-center gap-2.5 rounded-xl px-2.5 py-2 backdrop-blur-sm ${
                         c.active
-                          ? "bg-white/10 ring-1 ring-accent"
-                          : "bg-white/[0.04]"
+                          ? "bg-black/55 ring-1 ring-accent"
+                          : "bg-black/40"
                       }`}
                     >
                       <span
