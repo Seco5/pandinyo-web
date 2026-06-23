@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { LegalPage } from "@/components/sections/LegalPage";
+import { CONTACT_EMAIL, CONTACT_MAILTO } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Kullanım Koşulları",
@@ -74,7 +75,7 @@ export default function TermsPage() {
       <h2>9. İletişim</h2>
       <p>
         Sorularınız için:{" "}
-        <a href="mailto:ozcilingirsercan@gmail.com">ozcilingirsercan@gmail.com</a>
+        <a href={CONTACT_MAILTO}>{CONTACT_EMAIL}</a>
       </p>
     </LegalPage>
   );

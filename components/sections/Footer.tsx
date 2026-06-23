@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AtSign, Globe, Mail } from "lucide-react";
+import { CONTACT_MAILTO } from "@/content/site";
 
 export function Footer() {
   return (
@@ -53,7 +54,7 @@ export function Footer() {
               </p>
               <div className="flex gap-3 text-secondary">
                 <a href="#" aria-label="Instagram" className="hover:text-ink"><AtSign size={20} /></a>
-                <a href="mailto:ozcilingirsercan@gmail.com" aria-label="E-posta" className="hover:text-ink"><Mail size={20} /></a>
+                <a href={CONTACT_MAILTO} aria-label="E-posta" className="hover:text-ink"><Mail size={20} /></a>
                 <a href="#" aria-label="Web" className="hover:text-ink"><Globe size={20} /></a>
               </div>
             </div>

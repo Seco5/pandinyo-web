@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { LegalPage } from "@/components/sections/LegalPage";
+import { CONTACT_EMAIL, CONTACT_MAILTO } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Gizlilik Politikası",
@@ -18,7 +19,7 @@ export default function PrivacyPage() {
       <p>
         Bu uygulama ve web sitesi Pandinyo tarafından işletilmektedir. Gizlilikle
         ilgili her türlü talep için{" "}
-        <a href="mailto:ozcilingirsercan@gmail.com">ozcilingirsercan@gmail.com</a>{" "}
+        <a href={CONTACT_MAILTO}>{CONTACT_EMAIL}</a>{" "}
         adresinden bize ulaşabilirsiniz.
       </p>
 
@@ -79,7 +80,7 @@ export default function PrivacyPage() {
       <p>
         İlgili mevzuat (KVKK / GDPR) kapsamında verilerinize erişme, düzeltme,
         silme ve işlemeyi kısıtlama haklarına sahipsiniz. Talepleriniz için{" "}
-        <a href="mailto:ozcilingirsercan@gmail.com">ozcilingirsercan@gmail.com</a>{" "}
+        <a href={CONTACT_MAILTO}>{CONTACT_EMAIL}</a>{" "}
         adresine yazabilirsiniz.
       </p>
 
@@ -92,7 +93,7 @@ export default function PrivacyPage() {
       <h2>9. İletişim</h2>
       <p>
         Sorularınız için:{" "}
-        <a href="mailto:ozcilingirsercan@gmail.com">ozcilingirsercan@gmail.com</a>
+        <a href={CONTACT_MAILTO}>{CONTACT_EMAIL}</a>
       </p>
     </LegalPage>
   );

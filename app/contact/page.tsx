@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { IconMail, IconWorld, IconClock } from "@tabler/icons-react";
 import { LegalPage } from "@/components/sections/LegalPage";
+import { CONTACT_EMAIL, CONTACT_MAILTO, SITE_URL } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "İletişim",
@@ -11,14 +12,14 @@ const items = [
   {
     Icon: IconMail,
     title: "E-posta",
-    value: "ozcilingirsercan@gmail.com",
-    href: "mailto:ozcilingirsercan@gmail.com",
+    value: CONTACT_EMAIL,
+    href: CONTACT_MAILTO,
   },
   {
     Icon: IconWorld,
     title: "Web",
-    value: "pandinyo-web.vercel.app",
-    href: "https://pandinyo-web.vercel.app",
+    value: SITE_URL.replace("https://", ""),
+    href: SITE_URL,
   },
   {
     Icon: IconClock,
@@ -62,7 +63,7 @@ export default function ContactPage() {
         Pandinyo&apos;yu daha iyi hale getirmek için görüşlerinize ihtiyacımız
         var. Bir hata mı buldunuz, yeni bir sektör mü istiyorsunuz, yoksa bir
         içerik önerisi mi var? E-posta ile bize yazın:{" "}
-        <a href="mailto:ozcilingirsercan@gmail.com">ozcilingirsercan@gmail.com</a>
+        <a href={CONTACT_MAILTO}>{CONTACT_EMAIL}</a>
       </p>
 
       <h2>Basın & iş birlikleri</h2>

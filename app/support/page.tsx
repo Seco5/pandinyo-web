@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { LegalPage } from "@/components/sections/LegalPage";
+import { CONTACT_EMAIL, CONTACT_MAILTO } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Destek",
@@ -43,7 +44,7 @@ export default function SupportPage() {
       <h2>Hesap ve Veri Silme</h2>
       <p>
         Hesabınızı ve ilişkili tüm verilerinizi silmek isterseniz,{" "}
-        <a href="mailto:ozcilingirsercan@gmail.com">ozcilingirsercan@gmail.com</a>{" "}
+        <a href={CONTACT_MAILTO}>{CONTACT_EMAIL}</a>{" "}
         adresine &quot;Hesap Silme&quot; konulu bir e-posta gönderin. Talebiniz
         en geç 30 gün içinde işleme alınır ve verileriniz kalıcı olarak silinir.
       </p>
@@ -51,7 +52,7 @@ export default function SupportPage() {
       <h2>Hâlâ yardıma mı ihtiyacınız var?</h2>
       <p>
         Bize{" "}
-        <a href="mailto:ozcilingirsercan@gmail.com">ozcilingirsercan@gmail.com</a>{" "}
+        <a href={CONTACT_MAILTO}>{CONTACT_EMAIL}</a>{" "}
         adresinden ulaşın; genellikle 1–2 iş günü içinde yanıt veriyoruz. Daha
         hızlı çözüm için cihaz modelinizi ve uygulama sürümünüzü belirtmeniz
         yardımcı olur.
