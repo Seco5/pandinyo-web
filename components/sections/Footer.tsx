@@ -38,11 +38,22 @@ export function Footer() {
             </div>
             <div>
               <p className="mb-3 text-xs font-bold uppercase tracking-wide text-muted">
+                Yasal
+              </p>
+              <ul className="space-y-2 text-sm text-secondary">
+                <li><Link href="/privacy" className="hover:text-ink">Gizlilik Politikası</Link></li>
+                <li><Link href="/terms" className="hover:text-ink">Kullanım Koşulları</Link></li>
+                <li><Link href="/support" className="hover:text-ink">Destek</Link></li>
+                <li><Link href="/contact" className="hover:text-ink">İletişim</Link></li>
+              </ul>
+            </div>
+            <div>
+              <p className="mb-3 text-xs font-bold uppercase tracking-wide text-muted">
                 Takip et
               </p>
               <div className="flex gap-3 text-secondary">
                 <a href="#" aria-label="Instagram" className="hover:text-ink"><AtSign size={20} /></a>
-                <a href="#" aria-label="E-posta" className="hover:text-ink"><Mail size={20} /></a>
+                <a href="mailto:ozcilingirsercan@gmail.com" aria-label="E-posta" className="hover:text-ink"><Mail size={20} /></a>
                 <a href="#" aria-label="Web" className="hover:text-ink"><Globe size={20} /></a>
               </div>
             </div>
