@@ -5,4 +5,4 @@
 export const CONTACT_EMAIL = "nilvestech@outlook.com";
 export const CONTACT_MAILTO = `mailto:${CONTACT_EMAIL}`;
 
-export const SITE_URL = "https://pandinyo-web.vercel.app";
+export const SITE_URL = "https://pandinyo.com";

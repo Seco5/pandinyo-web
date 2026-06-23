@@ -25,7 +25,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://pandinyo-web.vercel.app"),
+  metadataBase: new URL("https://pandinyo.com"),
   title: {
     default: "Pandinyo — İş İngilizcesini sektörüne göre öğren",
     template: "%s · Pandinyo",
